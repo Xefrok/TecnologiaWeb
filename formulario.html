@@ -1,0 +1,83 @@
+<html>
+<head>
+<link href="style.css"  rel="stylesheet">
+
+   <script type="text/javascript" src="jquery.js"></script> 
+<script type="text/javascript">
+function validar()
+{
+ //var correo=$("#correo").val();
+ var a=$("#nombre").val();
+ var b=$("#pswd").val();
+
+ 
+ //var correo_carac=/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+ //var pswd_carac1=/([a-z].*[A-Z])|([A-Z].*[a-z])([0-9])+([!,%,&,@,#,$,^,*,?,_,~])/;
+ //var pswd_carac2=/([0-9])/;
+ //var pswd_carac3=/([!,%,&,@,#,$,^,*,?,_,~])/;
+
+
+
+
+ /*if(correo_carac.test(correo)==false)
+ {
+  alert("Por favor ingrese un correo valido");
+  return false;	
+ }
+	 else */
+	 /*	if(pswd.length<2 || pswd_carac1.test(pswd)==false || pswd_carac2.test(pswd)==false || pswd_carac3.test(pswd)==false)
+	 {
+	  alert("Por favor ingrese una contraseña mas fuerte");
+	  return false;
+	 }*/
+		 
+
+$.getJSON('usuarios.json', function(data) {         
+    json= $.parseJSON(data);
+    alert(json);
+});
+
+/*var $json=$.parseJSON(json);
+
+
+    var checkval = false;
+
+$.each($json,function(i,obj)
+        {
+            if(obj.nombre == a && obj.password == b)
+            {
+                checkval = true; 
+                return false;
+            }
+        });
+
+if(checkval)
+        {
+            alert("login correct");
+        }
+    else
+        {
+            alert("!!!!!-----Incorrect login Details-----!!!!!");
+            alert(json);
+        }
+
+*/
+}
+</script>
+</head>
+<body>
+  <div class="wrapper">
+    <form class="form-signin" method="post" onsubmit="return validar();">       
+      <h2 class="form-signin-heading">Formulario</h2>
+      <input type="text" id="nombre" placeholder="Nombre Completo">
+  <input type="password" id="pswd" placeholder="*******">
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>   
+    </form>
+    <p id="form_note">La contraseña debe tener: </br> *8 digitos minimo </br> *Una mayuscula minimo </br> *Una miniscula minimo </br> * Un caracter especial minimo</p>
+
+  </div>
+
+
+<script type="text/javascript" src="jquery.js"></script> 
+</body>
+</html>
